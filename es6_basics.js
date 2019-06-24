@@ -15,10 +15,11 @@ const age = 21;
 
 // variables declared with let or var can be re-assigned
 
+/*
 var city = "Paris";
 city = "Berlin";
 console.log(city);
-
+*/
 let country = "France";
 country = "Germany";
 console.log(country);
@@ -186,7 +187,71 @@ console.log(str1.endsWith("to be", 19)); // true
 // the second parameter is the length it should consider
 
 // repeat
+// creates and returns a new string which contains the specified number of copies of the string on which it was called, concatenated together
 
 const chorus = "Because I'm happy. ";
 
 console.log('Chorus lyrics for "Happy": ' + chorus.repeat(27));
+
+function generateShape(int) {
+  const shape = "+";
+
+  const str = `${shape.repeat(int)}\n`.repeat(int);
+
+  return str.substring(0, str.length - 1);
+}
+
+// Destructuring
+// Creating variables that bear the same name as the properties in the object we're destructuring.
+
+const campus = {
+  city: "Berlin",
+  bootcamps: ["WebDev", "Data", "UX/UI"],
+  address: "EichhornStr. 3",
+  zipCode: 10785,
+  language: "english",
+  GM: "Mike",
+  phoneNumbers: []
+};
+
+// ES5
+/*
+const city = campus.city;
+const bootcamps = campus.bootcamps;
+console.log(city);
+console.log(bootcamps);
+*/
+// ES6
+
+/*
+const { city } = campus;
+const { bootcamps } = campus;
+console.log(city);
+console.log(bootcamps);
+console.log(campus);
+*/
+// ES5
+// const city = campus.city;
+// const bootcamps = campus.bootcamps;
+// const GM = campus.GM;
+// const address = campus.address;
+// const zipCode = campus.zipCode;
+// ES6
+let {
+  city,
+  bootcamps,
+  GM,
+  address,
+  zipCode,
+  phoneNumbers,
+  building = "Atrium Tower"
+} = campus;
+
+console.log(city);
+city = "Paris";
+console.log(bootcamps);
+
+phoneNumbers.push(123);
+console.log(campus);
+
+console.log(building);
