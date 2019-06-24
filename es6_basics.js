@@ -106,3 +106,87 @@ function foo() {
 
 foo();
 // console.log(g); // Uncaught ReferenceError: g is not defined
+
+// String interpolation
+
+const str = `Hello World!`;
+
+const bike = {
+  color: "green",
+  make: "motobecane",
+  gears: 10
+};
+
+// ES5
+var description =
+  "My bike is a" +
+  " " +
+  bike.color +
+  " " +
+  bike.make +
+  " " +
+  "that comes with" +
+  " " +
+  bike.gears +
+  " " +
+  "!!!!";
+
+//  ES6
+
+const newDescription = `My bike is a ${bike.color} ${
+  bike.make
+} that comes with ${bike.gears} !!!!`;
+
+console.log(description);
+console.log(newDescription);
+
+// ES5
+var content = "<div> \
+    <h1>Hello world!</h1> \
+</div>";
+
+console.log(content);
+
+// ES6
+const newContent = `<div>
+    <h1>Hello world!</h1>
+</div>`;
+
+console.log(newContent);
+
+// String methods
+
+const str1 = "To be, or not to be, that is the question.";
+
+// includes
+// determines whether one string can be found within another string, returning true or false
+
+console.log(str1.includes("to be")); // true
+console.log(str1.includes("apple")); // false
+console.log(str1.includes("To be", 1)); // false
+console.log(str1.includes("To be", 0)); // true
+
+// the second parameter is the index where the search starts
+
+// startsWith
+
+console.log(str1.startsWith("To be")); // true
+console.log(str1.startsWith("question")); // false
+// console.log(str1[33]); // 'q'
+console.log(str1.startsWith("question", 33));
+true;
+// the second parameter is the index where the search starts
+
+// endsWith
+
+console.log(str1.endsWith("question.")); // true
+console.log(str1.endsWith("to be")); //false
+console.log(str1.endsWith("to be", 19)); // true
+
+// the second parameter is the length it should consider
+
+// repeat
+
+const chorus = "Because I'm happy. ";
+
+console.log('Chorus lyrics for "Happy": ' + chorus.repeat(27));
