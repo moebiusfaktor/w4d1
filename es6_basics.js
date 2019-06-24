@@ -255,3 +255,102 @@ phoneNumbers.push(123);
 console.log(campus);
 
 console.log(building);
+
+// Array destructuring
+
+const numbers = [1, 2, 3, 4, 5];
+
+const [, y, z] = numbers; // skipping the first element
+const [first, second, third] = numbers;
+// const first = numbers[0];
+// const second = numbers[1];
+// const third = numbers[2];
+
+console.log(y, z); // 2, 3
+
+const colors = ["#F00", "#0F0", "#00F"];
+const [red, green, blue, black = "black", white] = colors;
+
+console.log(red, green, blue, black, white);
+
+// const [a, b = 2, c, d = 1] = [3, 4];
+// console.log(a, b, c, d); // 3, 4, undefined, 1
+
+// Spread operator
+// ... returns the content of an object or an array without the object (or array) itself
+
+[...numbers].forEach(function(number) {
+  console.log(number);
+});
+
+// copy array values
+const booleans = [true, false];
+
+// ES5
+// const booleansCopy = booleans.slice();
+// const booleansCopy = [].concat(booleans)
+
+// ES6
+const booleansCopy = [...booleans];
+console.log(booleans, booleansCopy);
+
+const reptiles = ["lizard", "snake"];
+const birds = ["pidgeon", "eagle"];
+const mammals = ["dog", "cat"];
+
+// ES5
+// const animals = reptiles.concat(birds).concat(mammals); // ["lizard", "snake", "pidgeon", "eagle", "dog", "cat"]
+
+// ES6
+const animals = [...reptiles, ...birds, ...mammals]; // ["lizard", "snake", "pidgeon", "eagle", "dog", "cat"]
+console.log(animals);
+
+// Make an array out of a string
+const title = "Master Min";
+console.log([...title]); // ["M", "a", "s", "t", "e", "r", " ", "M", "i", "n"]
+console.log(...title);
+console.log("M", "a", "s", "t", "e", "r", " ", "M", "i", "n");
+
+const obj1 = {
+  a: 1,
+  b: 2
+};
+
+const obj2 = {
+  c: 3,
+  d: 4
+};
+
+// ES5
+// const objCopy = Object.assign({}, obj1);
+
+let objCopy = { ...obj1 };
+
+// merge objects
+
+objCopy = { ...obj1, ...obj2 };
+
+objCopy = { b: 0, ...obj1, ...obj2, a: 5 };
+console.log(objCopy);
+
+// Rest parameters
+
+console.log(...numbers);
+
+// in the function parameters ...n will transform the given values into an array n
+
+function add(...n) {
+  console.log(n);
+  return n.reduce(function(acc, val) {
+    return acc + val;
+  });
+}
+
+function multiply(factor, ...n) {
+  console.log(factor, n); // 2, [3, 4, 5, 6, [1, 2]]
+}
+
+multiply(2, 3, 4, 5, 6, [1, 2]);
+
+const numArr = [42, -1, 255, 0];
+console.log(Math.min(...numArr)); // -1
